@@ -14,8 +14,17 @@ auth = firebase.auth()
 
 # Log the user in
 
-user = auth.sign_in_with_email_and_password(peppper-bot1, pepper)
+user = auth.sign_in_with_email_and_password("peppper-bot1@peppermail.com", "pepper")
 
+#Data to get from the child before sending
+
+childrenName = "Test"
+imagePath = "image/TestImage"
+imageName = "TestImage"
+childrenTemperature = "38"
+childFeedback = "Yes/No"
+drawingPath = "image/TestDrawing"
+drawingName = "TestDraw"
 
 #Push Image
 
@@ -27,9 +36,12 @@ storage.child(imagePath).put(imageName+".jpg", user['idToken'])
 
 imageUrl = storage.child(imagePath).get_url()
 
+storage.child(drawingPath).put(drawingName+".jpg", user['idToken'])
+drawingUrl = storage.child(imagePath).get_url()
+
 #Push data to the database
 
-data = {"name": "Mortimer 'Morty' Smith", "picture": imageUrl, "temperature": temperature, "feedback": childFeedback, "drawing": drawingUrl}
+data = {"name": childrenName, "picture": imageUrl, "temperature": childrenTemperature, "feedback": childFeedback, "drawing": drawingUrl}
 db.child("childs").push(data)
 
 
