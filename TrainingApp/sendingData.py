@@ -1,4 +1,13 @@
-import sys [...] try: import pyrebase except: sys.path.append(ALFrameManager.getBehaviorPath(self.behaviorId)) import pyrebase
+
+
+import sys, os
+framemanager = ALProxy("ALFrameManager")
+pyrebase = os.path.join(self.behaviorAbsolutePath(), "../lib")
+if pyrebase not in sys.path:
+    sys.path.append(pyrebase)
+import requests
+
+import pyrebase
 
 config = {
   "apiKey": "AIzaSyCzdHfBdkE_TuMO5Tf506QhlQBBjGD9wyM",
@@ -19,11 +28,11 @@ user = auth.sign_in_with_email_and_password("peppper-bot1@peppermail.com", "pepp
 #Data to get from the child before sending
 
 childrenName = "Test"
-imagePath = "images/TestImage"
+imagePath = "image/TestImage"
 imageName = "TestImage"
 childrenTemperature = "38"
 childFeedback = "Yes/No"
-drawingPath = "images/TestDrawing"
+drawingPath = "image/TestDrawing"
 drawingName = "TestDraw"
 
 #Push Image
@@ -34,15 +43,15 @@ storage = firebase.storage()
 
 storage.child(imagePath).put(imageName+".jpg", user['idToken'])
 
-imageUrl = storage.child(imagePath).get_url(user['idToken'])
+imageUrl = storage.child(imagePath).get_url()
 
 storage.child(drawingPath).put(drawingName+".jpg", user['idToken'])
-drawingUrl = storage.child(imagePath).get_url(user['idToken'])
+drawingUrl = storage.child(imagePath).get_url()
 
 #Push data to the database
-db = firebase.database()
+
 data = {"name": childrenName, "picture": imageUrl, "temperature": childrenTemperature, "feedback": childFeedback, "drawing": drawingUrl}
-db.child("childs").push(data, user['idToken'])
+db.child("childs").push(data)
 
 
 # https://firebasestorage.googleapis.com/v0/b/storage-url.appspot.com/o/images%2Fexample.jpg?alt=media

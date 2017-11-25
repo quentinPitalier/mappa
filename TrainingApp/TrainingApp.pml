@@ -11,6 +11,14 @@
     <Resources>
         <File name="demo-service" src="demo-service.py" />
         <File name="icon" src="icon.png" />
+        <File name="sendingData" src="sendingData.py" />
+        <File name="test" src="test.pmt" />
+        <File name="Rain Rain Go Away" src="Rain Rain Go Away.mp3" />
+        <File name="choice_sentences" src="behavior_1/Aldebaran/choice_sentences.xml" />
+        <File name="__init__" src="lib/pyrebase/__init__.py" />
+        <File name="pyrebase.cpython-36" src="lib/pyrebase/__pycache__/pyrebase.cpython-36.pyc" />
+        <File name="pyrebase" src="lib/pyrebase/pyrebase.py" />
+        <File name="sendingData" src="lib/pyrebase/sendingData.py" />
     </Resources>
     <Topics>
         <Topic name="basicChannelDialog_enu" src="basicChannelDialog/basicChannelDialog_enu.top" topicName="basicChannelDialog" language="en_US" />

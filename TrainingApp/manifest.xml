@@ -18,9 +18,9 @@
    <nature>interactive</nature>
    <permissions/>
   </behaviorContent>
-  <dialogContent topicName="basicChannelDialog" typeVersion="1.0">
-   <topic language="en_US" path="basicChannelDialog/basicChannelDialog_enu.top"/>
-   <topic language="fi_FI" path="basicChannelDialog/basicChannelDialog_fif.top"/>
+  <dialogContent typeVersion="1.0" topicName="basicChannelDialog">
+   <topic path="basicChannelDialog/basicChannelDialog_enu.top" language="en_US"/>
+   <topic path="basicChannelDialog/basicChannelDialog_fif.top" language="fi_FI"/>
   </dialogContent>
  </contents>
  <services>
