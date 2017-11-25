@@ -3,6 +3,8 @@ import qi
 import sys
 import os
 
+import pyrebase
+
 
 class DemoService:
     services_connected = None

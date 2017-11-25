@@ -19,11 +19,11 @@ user = auth.sign_in_with_email_and_password("peppper-bot1@peppermail.com", "pepp
 #Data to get from the child before sending
 
 childrenName = "Test"
-imagePath = "image/TestImage"
+imagePath = "images/TestImage"
 imageName = "TestImage"
 childrenTemperature = "38"
 childFeedback = "Yes/No"
-drawingPath = "image/TestDrawing"
+drawingPath = "images/TestDrawing"
 drawingName = "TestDraw"
 
 #Push Image
@@ -34,15 +34,15 @@ storage = firebase.storage()
 
 storage.child(imagePath).put(imageName+".jpg", user['idToken'])
 
-imageUrl = storage.child(imagePath).get_url()
+imageUrl = storage.child(imagePath).get_url(user['idToken'])
 
 storage.child(drawingPath).put(drawingName+".jpg", user['idToken'])
-drawingUrl = storage.child(imagePath).get_url()
+drawingUrl = storage.child(imagePath).get_url(user['idToken'])
 
 #Push data to the database
-
+db = firebase.database()
 data = {"name": childrenName, "picture": imageUrl, "temperature": childrenTemperature, "feedback": childFeedback, "drawing": drawingUrl}
-db.child("childs").push(data)
+db.child("childs").push(data, user['idToken'])
 
 
 # https://firebasestorage.googleapis.com/v0/b/storage-url.appspot.com/o/images%2Fexample.jpg?alt=media

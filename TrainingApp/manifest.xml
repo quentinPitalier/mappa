@@ -24,7 +24,7 @@
   </dialogContent>
  </contents>
  <services>
-  <service execStart="demo-service.py" name="DemoService" autorun="false"/>
+  <service autorun="false" name="DemoService" execStart="demo-service.py"/>
  </services>
  <executableFiles>
   <file path="demo-service.py"/>

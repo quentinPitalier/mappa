@@ -1,12 +1,3 @@
-
-
-import sys, os
-framemanager = ALProxy("ALFrameManager")
-pyrebase = os.path.join(self.behaviorAbsolutePath(), "../lib")
-if pyrebase not in sys.path:
-    sys.path.append(pyrebase)
-import requests
-
 import pyrebase
 
 config = {

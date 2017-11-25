@@ -1,4 +1,10 @@
-import sys [...] try: import pyrebase except: sys.path.append(ALFrameManager.getBehaviorPath(self.behaviorId)) import pyrebase
+
+framemanager = ALProxy("ALFrameManager")
+folderName = os.path.join(framemanager.getBehaviorPath(self.behaviorId), "../lib")
+if folderName not in sys.path:
+    sys.path.append(folderName)
+import requests
+import pyrebase
 
 config = {
   "apiKey": "AIzaSyCzdHfBdkE_TuMO5Tf506QhlQBBjGD9wyM",
