@@ -1,0 +1,6 @@
+topic: ~basicChannelDialog()
+language: fif
+
+u:(e:FrontTactilTouched)
+    Tervetuloa
+    ^switchFocus(trainingapp/behavior_1)
